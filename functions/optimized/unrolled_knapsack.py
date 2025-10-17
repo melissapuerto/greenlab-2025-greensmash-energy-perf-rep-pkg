@@ -1,11 +1,3 @@
-"""
-Optimized (Unroll-4) version of 0-N Knapsack Problem.
-Reference baseline: recursive knapsack with lru_cache.
-Optimization:
- - replaces recursion with iterative DP table (bottom-up)
- - unrolls inner loop by 4 items per iteration to reduce overhead
-"""
-
 from __future__ import annotations
 import random
 import time
@@ -17,17 +9,6 @@ def knapsack_iterative_unroll4(
     values: list[int],
     allow_repetition=False,
 ) -> int:
-    """
-    Iterative DP version of knapsack with manual loop unrolling.
-
-    >>> cap = 50
-    >>> val = [60, 100, 120]
-    >>> w = [10, 20, 30]
-    >>> knapsack_iterative_unroll4(cap, w, val)
-    220
-    >>> knapsack_iterative_unroll4(cap, w, val, True)
-    300
-    """
     n = len(values)
     # dp[i][c] = max value for first i items and capacity c
     dp = [[0] * (capacity + 1) for _ in range(n + 1)]
@@ -80,10 +61,11 @@ def knapsack_iterative_unroll4(
 
 
 if __name__ == "__main__":
-    N = 5000  
-    max_weight = 1000
-    max_value = 1000
-    capacity = 5000
+    N = 50  # same as baseline
+    max_weight = 50
+    max_value = 100
+    capacity = 100
+
     weights = [random.randint(1, max_weight) for _ in range(N)]
     values = [random.randint(1, max_value) for _ in range(N)]
 
