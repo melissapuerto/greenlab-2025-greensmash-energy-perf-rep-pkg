@@ -7,6 +7,8 @@ Optimization:
 """
 
 from __future__ import annotations
+import random
+import time
 
 
 def knapsack_iterative_unroll4(
@@ -64,7 +66,6 @@ def knapsack_iterative_unroll4(
             val = values[i]
             c = wt
             while c + 3 <= capacity:
-                # unrolled updates
                 dp[c] = max(dp[c], val + dp[c - wt])
                 dp[c + 1] = max(dp[c + 1], val + dp[c + 1 - wt])
                 dp[c + 2] = max(dp[c + 2], val + dp[c + 2 - wt])
@@ -79,15 +80,17 @@ def knapsack_iterative_unroll4(
 
 
 if __name__ == "__main__":
-    N = 50_00
+    N = 5000  
     max_weight = 1000
     max_value = 1000
-    capacity = 50_00
-
+    capacity = 5000
     weights = [random.randint(1, max_weight) for _ in range(N)]
     values = [random.randint(1, max_value) for _ in range(N)]
 
     start = time.time()
     result = knapsack_iterative_unroll4(capacity, weights, values)
-    print("Optimized max value:", result)
-    print("Elapsed:", time.time() - start)
+    end = time.time()
+
+    print("Optimized knapsack max value:", result)
+    print(f"Total items processed: {N}")
+    print(f"Elapsed time: {end - start:.2f} s")
