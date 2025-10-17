@@ -1,4 +1,8 @@
-# baseline/prefix_sum.py: non-optimised
+# baseline/prefix_sum.py: non-optimised (Option 1: large input size)
+import random
+import time
+
+
 class PrefixSum:
     def __init__(self, array: list[int]) -> None:
         len_array = len(array)
@@ -19,7 +23,15 @@ class PrefixSum:
 
 
 if __name__ == "__main__":
-    import random
-    arr = [random.randint(1, 1000) for _ in range(10000)]
+    # Option 1: increase input size to 973,075 for measurable energy profiling
+    NUM_ELEMENTS = 973075
+    arr = [random.randint(1, 1000) for _ in range(NUM_ELEMENTS)]
+
+    start = time.time()
     ps = PrefixSum(arr)
-    ps.get_sum(0, len(arr) - 1)
+    total_sum = ps.get_sum(0, len(arr) - 1)
+    end = time.time()
+
+    print(f"PrefixSum baseline total: {total_sum}")
+    print(f"Array size: {NUM_ELEMENTS}")
+    print(f"Execution time: {end - start:.2f} seconds")
