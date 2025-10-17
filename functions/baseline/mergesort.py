@@ -1,6 +1,7 @@
 from __future__ import annotations
 import random, time
 
+
 def merge(left_half: list, right_half: list) -> list:
     sorted_array = [None] * (len(right_half) + len(left_half))
     pointer1 = 0
@@ -39,26 +40,12 @@ def merge_sort(array: list) -> list:
 
 
 if __name__ == "__main__":
-    target_time = 30  # seconds
-    n = 5000
-    elapsed = 0
+    INPUT_SIZE = 973075  # Option 1: scaled-up input
+    arr = [random.randint(0, 1000000) for _ in range(INPUT_SIZE)]
 
-    print("Finding input size for ~30 seconds runtime...")
-    while elapsed < target_time:
-        arr = [random.randint(0, 100000) for _ in range(n)]
-        start = time.time()
-        merge_sort(arr)
-        elapsed = time.time() - start
-        print(f"Input size: {n}, Time: {elapsed:.2f} s")
+    start = time.time()
+    merge_sort(arr)
+    end = time.time()
 
-        if elapsed < target_time:
-            # Exponentially increase size
-            n = int(n * 1.5)
-        elif elapsed > target_time * 1.5:
-            # Too high, reduce step if we overshoot too much
-            n = int(n * 0.9)
-            elapsed = 0  # re-test
-        else:
-            break
-
-    print(f"\n✅ Final input size: {n} (runtime ≈ {elapsed:.2f} s)")
+    print(f"Input size: {INPUT_SIZE}")
+    print(f"Execution time: {end - start:.2f} seconds")
