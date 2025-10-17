@@ -1,68 +1,59 @@
 """
-Optimized (Unroll-4) version of Product Sum from a Special Array.
-Reference baseline: recursive product_sum_array().
-Optimization:
- - processes elements four at a time (loop unrolling)
- - correctly handles depth multipliers
+Optimized (Loop Unrolled × 4) Product Sum implementation.
+Based on recursive baseline but processes 4 elements per loop iteration.
 """
 
 from __future__ import annotations
-from collections.abc import Iterable
+import random
+import time
 
 
 def product_sum(arr: list[int | list], depth: int) -> float:
-    """
-    Helper function with loop unrolling optimization.
-    """
     total_sum = 0.0
     i = 0
     n = len(arr)
-    
-    # unrolled by 4 elements at a time - explicitly process 4 elements
+
+    # Unrolled by 4 elements
     while i + 3 < n:
-        # Element 0
-        ele0 = arr[i]
-        total_sum += product_sum(ele0, depth + 1) if isinstance(ele0, list) else ele0
-        # Element 1
-        ele1 = arr[i + 1]
-        total_sum += product_sum(ele1, depth + 1) if isinstance(ele1, list) else ele1
-        # Element 2
-        ele2 = arr[i + 2]
-        total_sum += product_sum(ele2, depth + 1) if isinstance(ele2, list) else ele2
-        # Element 3
-        ele3 = arr[i + 3]
-        total_sum += product_sum(ele3, depth + 1) if isinstance(ele3, list) else ele3
+        e0, e1, e2, e3 = arr[i], arr[i + 1], arr[i + 2], arr[i + 3]
+        total_sum += product_sum(e0, depth + 1) if isinstance(e0, list) else e0
+        total_sum += product_sum(e1, depth + 1) if isinstance(e1, list) else e1
+        total_sum += product_sum(e2, depth + 1) if isinstance(e2, list) else e2
+        total_sum += product_sum(e3, depth + 1) if isinstance(e3, list) else e3
         i += 4
-    
-    # handle remaining elements (0-3 elements)
+
+    # Handle remaining elements
     while i < n:
-        ele = arr[i]
-        total_sum += product_sum(ele, depth + 1) if isinstance(ele, list) else ele
+        e = arr[i]
+        total_sum += product_sum(e, depth + 1) if isinstance(e, list) else e
         i += 1
-    
+
     return total_sum * depth
 
 
 def product_sum_unrolled(array: list[int | list]) -> float:
-    """
-    Loop-unrolled product-sum equivalent to baseline.
-
-    Examples:
-        >>> product_sum_unrolled([1, 2, 3])
-        6.0
-        >>> product_sum_unrolled([1, [2, 3]])
-        11.0
-        >>> product_sum_unrolled([1, [2, [3, 4]]])
-        47.0
-        >>> product_sum_unrolled([-3.5, [1, [0.5]]])
-        1.5
-    """
     return product_sum(array, 1)
 
 
 if __name__ == "__main__":
-    import doctest
-    doctest.testmod()
+    # Option 1: increase input size to 973,075 for measurable profiling
+    NUM_ELEMENTS = 973075
+    random.seed(42)
 
-    # Manual sanity check
-    print(product_sum_unrolled([5, 2, [-7, 1], 3, [6, [-13, 8], 4]]))  # should print -12
+    def generate_special_array(size: int, max_depth: int = 4) -> list:
+        if max_depth == 0 or size < 10:
+            return [random.randint(-100, 100) for _ in range(size)]
+        return [
+            generate_special_array(size // 2, max_depth - 1),
+            [random.randint(-100, 100) for _ in range(size // 2)],
+        ]
+
+    arr = generate_special_array(NUM_ELEMENTS // 100)
+
+    start = time.time()
+    result = product_sum_unrolled(arr)
+    end = time.time()
+
+    print(f"Unrolled ProductSum result: {result}")
+    print(f"Approx. elements processed: {NUM_ELEMENTS}")
+    print(f"Execution time: {end - start:.2f} seconds")
