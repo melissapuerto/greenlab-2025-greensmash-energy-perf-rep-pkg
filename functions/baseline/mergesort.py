@@ -1,3 +1,4 @@
+from __future__ import annotations
 import random, time
 
 def merge(left_half: list, right_half: list) -> list:
