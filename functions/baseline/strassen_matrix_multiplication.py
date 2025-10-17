@@ -1,7 +1,8 @@
 from __future__ import annotations
 
 import math
-
+import random
+import time
 
 def default_matrix_multiplication(a: list, b: list) -> list:
     """
@@ -160,8 +161,10 @@ if __name__ == "__main__":
     matrix1 = [[random.randint(0, 10) for _ in range(N)] for _ in range(N)]
     matrix2 = [[random.randint(0, 10) for _ in range(N)] for _ in range(N)]
 
-    import time
     start = time.time()
     result = strassen(matrix1, matrix2)
-    print("Baseline runtime:", time.time() - start)
-    print("Result[0][0]:", result[0][0])  # simple check
+    end = time.time()
+
+    print("Baseline runtime:", end - start)
+    print("Result[0][0]:", result[0][0])
+    print(f"Total matrix size processed: {N}x{N}")

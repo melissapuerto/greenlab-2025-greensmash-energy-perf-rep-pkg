@@ -1,7 +1,8 @@
 """A recursive implementation of 0-N Knapsack Problem
 https://en.wikipedia.org/wiki/Knapsack_problem
 """
-
+import random
+import time
 from __future__ import annotations
 
 from functools import lru_cache
@@ -63,15 +64,18 @@ def knapsack(
 
 
 if __name__ == "__main__":
-    N = 50_00
+    N = 5000
     max_weight = 1000
     max_value = 1000
-    capacity = 50_00
+    capacity = 5000
 
     weights = [random.randint(1, max_weight) for _ in range(N)]
     values = [random.randint(1, max_value) for _ in range(N)]
 
     start = time.time()
+    end = time.time()
+    print(f"Total items generated: {N}")
+    print(f"Setup time elapsed: {end - start:.2f} s")
     # Warning: recursive baseline may be extremely slow for N=50,000
     # Uncomment at your own risk:
     # result = knapsack(capacity, weights, values, len(values))
