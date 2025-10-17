@@ -1,5 +1,6 @@
 # optimized/mergesort.py: loop unrolled 4
 from __future__ import annotations
+import random, time
 
 def merge(left_half: list, right_half: list) -> list:
     sorted_array = [None] * (len(right_half) + len(left_half))
@@ -51,6 +52,12 @@ def merge_sort(array: list) -> list:
 
 
 if __name__ == "__main__":
-    import random
-    arr = [random.randint(0, 100000) for _ in range(5000)]
+    INPUT_SIZE = 50000  # Try 10× (50000), 50× (250000), 100× (500000) the baseline 5000
+    arr = [random.randint(0, 1000000) for _ in range(INPUT_SIZE)]
+
+    start = time.time()
     merge_sort(arr)
+    end = time.time()
+
+    print(f"Input size: {INPUT_SIZE}")
+    print(f"Execution time: {end - start:.2f} seconds")
