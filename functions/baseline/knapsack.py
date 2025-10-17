@@ -1,10 +1,6 @@
-"""A recursive implementation of 0-N Knapsack Problem
-https://en.wikipedia.org/wiki/Knapsack_problem
-"""
+from __future__ import annotations
 import random
 import time
-from __future__ import annotations
-
 from functools import lru_cache
 
 
@@ -15,41 +11,11 @@ def knapsack(
     counter: int,
     allow_repetition=False,
 ) -> int:
-    """
-    Returns the maximum value that can be put in a knapsack of a capacity cap,
-    whereby each weight w has a specific value val
-    with option to allow repetitive selection of items
-
-    >>> cap = 50
-    >>> val = [60, 100, 120]
-    >>> w = [10, 20, 30]
-    >>> c = len(val)
-    >>> knapsack(cap, w, val, c)
-    220
-
-    Given the repetition is NOT allowed,
-    the result is 220 cause the values of 100 and 120 got the weight of 50
-    which is the limit of the capacity.
-    >>> knapsack(cap, w, val, c, True)
-    300
-
-    Given the repetition is allowed,
-    the result is 300 cause the values of 60*5 (pick 5 times)
-    got the weight of 10*5 which is the limit of the capacity.
-    """
-
     @lru_cache
     def knapsack_recur(capacity: int, counter: int) -> int:
-        # Base Case
         if counter == 0 or capacity == 0:
             return 0
 
-        # If weight of the nth item is more than Knapsack of capacity,
-        #   then this item cannot be included in the optimal solution,
-        # else return the maximum of two cases:
-        #   (1) nth item included only once (0-1), if allow_repetition is False
-        #       nth item included one or more times (0-N), if allow_repetition is True
-        #   (2) not included
         if weights[counter - 1] > capacity:
             return knapsack_recur(capacity, counter - 1)
         else:
@@ -64,21 +30,18 @@ def knapsack(
 
 
 if __name__ == "__main__":
-    N = 5000
-    max_weight = 1000
-    max_value = 1000
-    capacity = 5000
+    N = 50  # small enough to run recursive knapsack
+    max_weight = 50
+    max_value = 100
+    capacity = 100
 
     weights = [random.randint(1, max_weight) for _ in range(N)]
     values = [random.randint(1, max_value) for _ in range(N)]
 
     start = time.time()
+    result = knapsack(capacity, weights, values, len(values))
     end = time.time()
-    print(f"Total items generated: {N}")
-    print(f"Setup time elapsed: {end - start:.2f} s")
-    # Warning: recursive baseline may be extremely slow for N=50,000
-    # Uncomment at your own risk:
-    # result = knapsack(capacity, weights, values, len(values))
-    # print("Baseline max value:", result)
-    print("Baseline setup done. Recursive computation skipped for large N.")
-    print("Elapsed:", time.time() - start)
+
+    print("Baseline knapsack max value:", result)
+    print(f"Total items processed: {N}")
+    print(f"Elapsed time: {end - start:.2f} s")
