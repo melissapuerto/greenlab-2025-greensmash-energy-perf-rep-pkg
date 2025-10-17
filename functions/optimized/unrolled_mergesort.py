@@ -52,7 +52,7 @@ def merge_sort(array: list) -> list:
 
 
 if __name__ == "__main__":
-    INPUT_SIZE = 50000  # Try 10× (50000), 50× (250000), 100× (500000) the baseline 5000
+    INPUT_SIZE = 973075  # Try 10× (50000), 50× (250000), 100× (500000) the baseline 5000
     arr = [random.randint(0, 1000000) for _ in range(INPUT_SIZE)]
 
     start = time.time()
