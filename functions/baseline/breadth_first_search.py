@@ -1,8 +1,8 @@
-#!/usr/bin/python
-"""Author: OMKAR PATHAK"""
-"""Baseline Breadth-First Search — scaled up input (Option 1: 973075 nodes)."""
-
 from __future__ import annotations
+#!/usr/bin/python
+
+"""Author: OMKAR PATHAK"""
+
 from queue import Queue
 import time
 
