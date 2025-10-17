@@ -2,6 +2,7 @@
 from __future__ import annotations
 import random, time
 
+
 def merge(left_half: list, right_half: list) -> list:
     sorted_array = [None] * (len(right_half) + len(left_half))
     pointer1 = 0
@@ -10,7 +11,7 @@ def merge(left_half: list, right_half: list) -> list:
     len_left = len(left_half)
     len_right = len(right_half)
 
-    # Loop unrolling by 4
+    # Loop unrolling by 4 elements
     while pointer1 + 3 < len_left and pointer2 + 3 < len_right:
         for _ in range(4):
             if left_half[pointer1] < right_half[pointer2]:
@@ -21,7 +22,7 @@ def merge(left_half: list, right_half: list) -> list:
                 pointer2 += 1
             index += 1
 
-    # Normal merge for remaining elements
+    # Handle remaining elements normally
     while pointer1 < len_left and pointer2 < len_right:
         if left_half[pointer1] < right_half[pointer2]:
             sorted_array[index] = left_half[pointer1]
@@ -52,7 +53,7 @@ def merge_sort(array: list) -> list:
 
 
 if __name__ == "__main__":
-    INPUT_SIZE = 973075  # Try 10× (50000), 50× (250000), 100× (500000) the baseline 5000
+    INPUT_SIZE = 973075  # Option 1: scaled-up input
     arr = [random.randint(0, 1000000) for _ in range(INPUT_SIZE)]
 
     start = time.time()
