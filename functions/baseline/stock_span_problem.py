@@ -61,3 +61,17 @@ S = calculate_span(price)
 
 # Print the calculated span values
 print_array(S, len(price))
+if __name__ == "__main__":
+    import random
+    import time
+
+    # Increase input size to 973,075
+    N = 500_00
+    prices = [random.randint(1, 1000) for _ in range(N)]
+
+    start = time.time()
+    spans = calculate_span(prices)
+    print("Baseline runtime:", time.time() - start)
+
+    # Simple check
+    print("First 10 spans:", spans[:10])

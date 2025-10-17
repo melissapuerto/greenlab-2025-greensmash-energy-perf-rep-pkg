@@ -79,13 +79,15 @@ def knapsack_iterative_unroll4(
 
 
 if __name__ == "__main__":
-    import doctest
+    N = 50_00
+    max_weight = 1000
+    max_value = 1000
+    capacity = 50_00
 
-    doctest.testmod()
+    weights = [random.randint(1, max_weight) for _ in range(N)]
+    values = [random.randint(1, max_value) for _ in range(N)]
 
-    # quick manual check
-    cap = 50
-    val = [60, 100, 120]
-    w = [10, 20, 30]
-    print("0-1 Knapsack:", knapsack_iterative_unroll4(cap, w, val))
-    print("0-N Knapsack:", knapsack_iterative_unroll4(cap, w, val, True))
+    start = time.time()
+    result = knapsack_iterative_unroll4(capacity, weights, values)
+    print("Optimized max value:", result)
+    print("Elapsed:", time.time() - start)

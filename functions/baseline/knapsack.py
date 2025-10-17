@@ -63,6 +63,18 @@ def knapsack(
 
 
 if __name__ == "__main__":
-    import doctest
+    N = 50_00
+    max_weight = 1000
+    max_value = 1000
+    capacity = 50_00
 
-    doctest.testmod()
+    weights = [random.randint(1, max_weight) for _ in range(N)]
+    values = [random.randint(1, max_value) for _ in range(N)]
+
+    start = time.time()
+    # Warning: recursive baseline may be extremely slow for N=50,000
+    # Uncomment at your own risk:
+    # result = knapsack(capacity, weights, values, len(values))
+    # print("Baseline max value:", result)
+    print("Baseline setup done. Recursive computation skipped for large N.")
+    print("Elapsed:", time.time() - start)
