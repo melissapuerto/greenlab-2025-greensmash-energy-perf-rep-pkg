@@ -59,7 +59,22 @@ class Graph:
 
 if __name__ == "__main__":
     import doctest
+    n = 5000
+    num_edges = n * 10  # sparse: 10 edges per node on average
 
+    edges = [(random.randint(0, n-1), random.randint(0, n-1), random.randint(1, 100))
+             for _ in range(num_edges)]
+
+    g_opt = GraphOptimized(n)
+    for u, v, w in edges:
+        g_opt.add_edge(u, v, w)
+
+    start = time.time()
+    g_opt.floyd_warshall()
+    print("Optimized runtime:", time.time() - start)
+
+    u, v = 0, 1
+    print("Min distance (optimized):", g_opt.show_min(u, v))
     doctest.testmod()
 
     # Example usage

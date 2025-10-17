@@ -60,8 +60,22 @@ class Graph:
 
 if __name__ == "__main__":
     import doctest
-
+    n = 5000
     doctest.testmod()
+    num_edges = n * 10  # sparse: 10 edges per node on average
+
+    edges = [(random.randint(0, n-1), random.randint(0, n-1), random.randint(1, 100))
+             for _ in range(num_edges)]
+    g_base = GraphBaseline(n)
+    for u, v, w in edges:
+        g_base.add_edge(u, v, w)
+
+    start = time.time()
+    g_base.floyd_warshall()
+    print("Baseline runtime:", time.time() - start)
+
+    u, v = 0, 1
+    print("Min distance (baseline):", g_base.show_min(u, v))
 
     # Example usage
     graph = Graph(5)

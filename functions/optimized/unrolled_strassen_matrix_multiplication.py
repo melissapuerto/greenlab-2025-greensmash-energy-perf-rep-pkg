@@ -161,17 +161,12 @@ def strassen(matrix1: list, matrix2: list) -> list:
 
 
 if __name__ == "__main__":
-    matrix1 = [
-        [2, 3, 4, 5],
-        [6, 4, 3, 1],
-        [2, 3, 6, 7],
-        [3, 1, 2, 4],
-        [2, 3, 4, 5],
-        [6, 4, 3, 1],
-        [2, 3, 6, 7],
-        [3, 1, 2, 4],
-        [2, 3, 4, 5],
-        [6, 2, 3, 1],
-    ]
-    matrix2 = [[0, 2, 1, 1], [16, 2, 3, 3], [2, 2, 7, 7], [13, 11, 22, 4]]
-    print(strassen(matrix1, matrix2))
+    N = 500  # feasible size; 50,000 is too big for memory
+    matrix1 = [[random.randint(0, 10) for _ in range(N)] for _ in range(N)]
+    matrix2 = [[random.randint(0, 10) for _ in range(N)] for _ in range(N)]
+
+    import time
+    start = time.time()
+    result = strassen(matrix1, matrix2)
+    print("Optimized runtime:", time.time() - start)
+    print("Result[0][0]:", result[0][0]) 
