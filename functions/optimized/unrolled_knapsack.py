@@ -65,6 +65,7 @@ if __name__ == "__main__":
     max_weight = 50
     max_value = 100
     capacity = 100
+    random.seed(42) 
 
     weights = [random.randint(1, max_weight) for _ in range(N)]
     values = [random.randint(1, max_value) for _ in range(N)]
