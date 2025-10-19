@@ -7,7 +7,7 @@ def handler(sig, frame):
 signal.signal(signal.SIGINT, handler)
 signal.signal(signal.SIGTERM, handler)
 
-interval = 1.0
+interval = 0.1
 log_path = sys.argv[1] if len(sys.argv) > 1 else "/tmp/cpu_log.csv"
 
 with open(log_path, "w", newline="") as f:
