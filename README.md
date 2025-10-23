@@ -81,3 +81,56 @@ The results of the experiment will be stored in the directory `RunnerConfig.resu
 ### Contributing
 If you want to develop a new feature or ER, or found some bug you want to report we would love to hear from you! Please refer to our [contribution guidelines](https://github.com/S2-group/experiment-runner/wiki/Contributing-to-ER) for information on how to submit PRs or bug reports.
 
+### GreenSmash Energy / Performance Runner — Setup & Run Guide
+## 1 On Raspberry Pi
+# Connect to Raspberry Pi from your laptop
+ssh prachisinghal@192.168.0.113
+# (use your own IP, username, and password if different)
+# Update system
+sudo apt update && sudo apt upgrade -y
+sudo apt install -y git python3 python3-pip python3-psutil gnat gprbuild
+
+# Clone benchmark repository
+cd ~
+git clone https://github.com/melissapuerto/greenlab-2025-greensmash-energy-perf-rep-pkg.git
+cd greenlab-2025-greensmash-energy-perf-rep-pkg
+
+# Install PowerJoular
+cd ~
+git clone https://github.com/joular/powerjoular.git
+cd powerjoular
+sudo ./installer/build-install.sh
+
+## 2 On Host Machine
+# Clone experiment runner
+cd ~
+git clone https://github.com/your-org/experiment-runner.git
+cd experiment-runner
+
+# Create virtual environment
+python3 -m venv venv
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+## 3 Setup SSH passwordless access
+ssh-keygen -t ed25519 -C "laptop-key" -f ~/.ssh/id_ed25519 -N ""
+ssh-copy-id -i ~/.ssh/id_ed25519.pub prachisinghal@192.168.0.113
+ssh prachisinghal@192.168.0.113 "echo connected"
+
+### Running Experiments
+
+## Run from the host machine:
+Connect RPI:ssh prachisinghal@192.168.0.113
+on host: 
+cd ~/experiment-runner
+source venv/bin/activate
+python GreenSmashRemoteRunner.py
+
+# After the run, results will be saved in "Results folder":
+Each entry contains:
+	•	wall_seconds
+	•	energy_joules
+	•	avg_cpu_util_percent
+	•	peak_memory_mb
