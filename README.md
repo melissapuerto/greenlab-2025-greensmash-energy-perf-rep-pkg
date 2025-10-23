@@ -97,7 +97,8 @@ sudo apt install -y git python3 python3-pip python3-psutil gnat gprbuild
 
 git clone https://github.com/melissapuerto/greenlab-2025-greensmash-energy-perf-rep-pkg.git
 
-cd greenlab-2025-greensmash-energy-perf-rep-pkg```
+cd greenlab-2025-greensmash-energy-perf-rep-pkg
+```
 
 #### Install PowerJoular
 ```cd ~
@@ -132,20 +133,23 @@ source venv/bin/activate
 
 ssh-copy-id -i ~/.ssh/id_ed25519.pub prachisinghal@192.168.0.113
 
-ssh prachisinghal@192.168.0.113 "echo connected"```
+ssh prachisinghal@192.168.0.113 "echo connected"
+```
 
 ## Running Experiments
 
 ### Run from the host machine:
 Connect RPI:
-``` ssh prachisinghal@192.168.0.113```
+``` ssh prachisinghal@192.168.0.113
+```
 on host:
 
 ```cd ~/experiment-runner
 
 source venv/bin/activate
 
-python GreenSmashRemoteRunner.py```
+python GreenSmashRemoteRunner.py
+```
 
 #### After the run, results will be saved in "Results folder":
 Each entry contains:
