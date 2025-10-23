@@ -113,12 +113,12 @@ source venv/bin/activate
 ### Install dependencies
 pip install -r requirements.txt
 
-## 3 Setup SSH passwordless access
+### 3 Setup SSH passwordless access
 ssh-keygen -t ed25519 -C "laptop-key" -f ~/.ssh/id_ed25519 -N ""
 ssh-copy-id -i ~/.ssh/id_ed25519.pub prachisinghal@192.168.0.113
 ssh prachisinghal@192.168.0.113 "echo connected"
 
-### Running Experiments
+## Running Experiments
 
 ### Run from the host machine:
 Connect RPI:ssh prachisinghal@192.168.0.113
