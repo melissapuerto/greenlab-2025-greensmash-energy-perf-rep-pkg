@@ -84,11 +84,13 @@ If you want to develop a new feature or ER, or found some bug you want to report
 ### GreenSmash Energy / Performance Runner — Setup & Run Guide
 ### 1. Setup on Raspberry Pi
 Connect to Raspberry Pi from your laptop
-```ssh prachisinghal@192.168.0.113```
+```ssh prachisinghal@192.168.0.113
+```
 #### Update system
 ```sudo apt update && sudo apt upgrade -y
 
-sudo apt install -y git python3 python3-pip python3-psutil gnat gprbuild```
+sudo apt install -y git python3 python3-pip python3-psutil gnat gprbuild
+```
 
 #### Clone benchmark repository
 ```cd ~
@@ -103,7 +105,8 @@ git clone https://github.com/joular/powerjoular.git
 
 cd powerjoular
 
-sudo ./installer/build-install.sh```
+sudo ./installer/build-install.sh
+```
 
 ## 2 On Host Machine
 #### Clone experiment runner
@@ -111,15 +114,18 @@ sudo ./installer/build-install.sh```
 
 git clone https://github.com/your-org/experiment-runner.git
 
-cd experiment-runner```
+cd experiment-runner
+```
 
 ### Create virtual environment
 ```python3 -m venv venv
 
-source venv/bin/activate```
+source venv/bin/activate
+```
 
 ### Install dependencies
-```pip install -r requirements.txt```
+```pip install -r requirements.txt
+```
 
 ### 3 Setup SSH passwordless access
 ```ssh-keygen -t ed25519 -C "laptop-key" -f ~/.ssh/id_ed25519 -N ""
