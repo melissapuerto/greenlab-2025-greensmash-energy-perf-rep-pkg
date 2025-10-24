@@ -119,7 +119,7 @@ cd ~
 git clone https://github.com/your-org/experiment-runner.git
 cd experiment-runner
 ```
-#### Copy GreenSmashemoteRunner.py file into this repo
+#### Copy GreenSmashemoteRunner.py file from remote-runner folder into this repo
 path e.g: (https://github.com/S2-group/experiment-runner/blob/master/examples/lab/GreenSmashRemoteRunner.py)
 
 ### Create virtual environment
