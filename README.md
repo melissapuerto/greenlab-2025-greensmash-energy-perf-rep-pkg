@@ -85,30 +85,29 @@ If you want to develop a new feature or ER, or found some bug you want to report
 ### 1. Setup on Raspberry Pi
 Connect to Raspberry Pi from your laptop
 
-```ssh prachisinghal@192.168.0.113
+```bash
+ssh prachisinghal@192.168.0.113
 ```
 #### Update system
+```bash
 
-```sudo apt update && sudo apt upgrade -y
-
+sudo apt update && sudo apt upgrade -y
 sudo apt install -y git python3 python3-pip python3-psutil gnat gprbuild
 ```
 
 #### Clone benchmark repository
 
-```cd ~
-
+```bash
+cd ~
 git clone https://github.com/melissapuerto/greenlab-2025-greensmash-energy-perf-rep-pkg.git
-
 cd greenlab-2025-greensmash-energy-perf-rep-pkg
 ```
 
 #### Install PowerJoular
-```cd ~
+```bash
+cd ~
 git clone https://github.com/joular/powerjoular.git
-
 cd powerjoular
-
 sudo ./installer/build-install.sh
 ```
 
