@@ -83,6 +83,7 @@ If you want to develop a new feature or ER, or found some bug you want to report
 
 ### GreenSmash Energy / Performance Runner — Setup & Run Guide
 ### 1. Setup on Raspberry Pi
+(replace with your actual IP / username if different)
 Connect to Raspberry Pi from your laptop
 
 ```bash
@@ -113,28 +114,29 @@ sudo ./installer/build-install.sh
 
 ## 2 On Host Machine
 #### Clone experiment runner
-```cd ~
-
+```bash
+cd ~
 git clone https://github.com/your-org/experiment-runner.git
-
 cd experiment-runner
 ```
+#### Copy GreenSmashemoteRunner.py file into this repo
+path e.g: (https://github.com/S2-group/experiment-runner/blob/master/examples/lab/GreenSmashRemoteRunner.py)
 
 ### Create virtual environment
-```python3 -m venv venv
-
+```bash
+python3 -m venv venv
 source venv/bin/activate
 ```
 
 ### Install dependencies
-```pip install -r requirements.txt
+```bash
+pip install -r requirements.txt
 ```
 
 ### 3 Setup SSH passwordless access
-```ssh-keygen -t ed25519 -C "laptop-key" -f ~/.ssh/id_ed25519 -N ""
-
+```bash
+ssh-keygen -t ed25519 -C "laptop-key" -f ~/.ssh/id_ed25519 -N ""
 ssh-copy-id -i ~/.ssh/id_ed25519.pub prachisinghal@192.168.0.113
-
 ssh prachisinghal@192.168.0.113 "echo connected"
 ```
 
@@ -142,20 +144,23 @@ ssh prachisinghal@192.168.0.113 "echo connected"
 
 ### Run from the host machine:
 Connect RPI:
-``` ssh prachisinghal@192.168.0.113
+```bash
+ssh prachisinghal@192.168.0.113
 ```
 on host:
 
-```cd ~/experiment-runner
-
+```bash
+cd ~/experiment-runner
 source venv/bin/activate
-
 python GreenSmashRemoteRunner.py
 ```
 
 #### After the run, results will be saved in "Results folder":
 Each entry contains:
 	•	wall_seconds
+	
 	•	energy_joules
+	
 	•	avg_cpu_util_percent
+	
 	•	peak_memory_mb
