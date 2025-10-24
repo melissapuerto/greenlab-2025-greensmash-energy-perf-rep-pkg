@@ -112,7 +112,7 @@ cd powerjoular
 sudo ./installer/build-install.sh
 ```
 
-## 2 On Host Machine
+### 2. On Host Machine
 #### Clone experiment runner
 ```bash
 cd ~
@@ -133,7 +133,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 ```
 
-### 3 Setup SSH passwordless access
+### 3. Setup SSH passwordless access
 ```bash
 ssh-keygen -t ed25519 -C "laptop-key" -f ~/.ssh/id_ed25519 -N ""
 ssh-copy-id -i ~/.ssh/id_ed25519.pub prachisinghal@192.168.0.113
@@ -157,6 +157,7 @@ python GreenSmashRemoteRunner.py
 
 #### After the run, results will be saved in "Results folder":
 Each entry contains:
+
 	•	wall_seconds
 	
 	•	energy_joules
