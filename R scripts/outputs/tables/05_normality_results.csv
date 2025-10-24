@@ -1,0 +1,5 @@
+treatment,W,p_value,Normal,Metric
+baseline,0.5546751139671815,5.890609670731228e-27,No,Energy (J)
+optimized,0.6878848639433601,3.355832128373903e-23,No,Energy (J)
+baseline,0.5521344150175697,5.100476515954676e-27,No,Execution Time (s)
+optimized,0.6859244968840736,2.898897186623475e-23,No,Execution Time (s)

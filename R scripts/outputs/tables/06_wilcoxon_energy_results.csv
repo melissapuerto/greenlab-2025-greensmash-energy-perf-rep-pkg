@@ -1,0 +1,11 @@
+function,p_value,effect_size,p_adj,Significant
+bfs,1.80E-06,0.873626568,4.50E-06,Yes
+equilibrium_index,2.21E-04,0.683968858,4.42E-04,Yes
+floyd_warshall,0.056151275,0.374888266,0.070189093,No
+knapsack,1.79E-06,0.873788508,4.50E-06,Yes
+max_subarray,1.77E-06,0.874158992,4.50E-06,Yes
+mergesort,1.73E-06,0.874971074,4.50E-06,Yes
+prefix_sum,0.010335902,0.471568026,0.014765574,Yes
+product_sum,4.08E-04,0.636142207,6.80E-04,Yes
+stock_span,0.252743261,0.219820593,0.280825845,No
+strassen,0.649794605,0.101150748,0.649794605,No

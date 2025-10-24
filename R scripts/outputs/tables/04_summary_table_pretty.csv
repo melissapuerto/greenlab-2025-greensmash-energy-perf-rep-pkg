@@ -1,0 +1,261 @@
+"","func","treatment","Energy","Time","Memory","CPU"
+"1","bfs","baseline","Mean: 79.984
+Median: 78.8
+SD: 2.431
+IQR: 2.63","Mean: 25.47
+Median: 25.45
+SD: 0.225
+IQR: 0.341","Mean: 4.034
+Median: 4.023
+SD: 0.047
+IQR: 0.047","Mean: 25.027
+Median: 25.11
+SD: 0.333
+IQR: 0.117"
+"2","bfs","optimized","Mean: 36.895
+Median: 36.55
+SD: 1.109
+IQR: 0.028","Mean: 9.343
+Median: 9.337
+SD: 0.08
+IQR: 0.076","Mean: 4.046
+Median: 4.047
+SD: 0.055
+IQR: 0.047","Mean: 24.752
+Median: 24.8
+SD: 0.313
+IQR: 0.276"
+"3","equilibrium_index","baseline","Mean: 27.832
+Median: 28.62
+SD: 1.233
+IQR: 2.637","Mean: 5.967
+Median: 6.192
+SD: 0.409
+IQR: 0.781","Mean: 4.055
+Median: 4.055
+SD: 0.057
+IQR: 0.062","Mean: 24.593
+Median: 24.575
+SD: 0.273
+IQR: 0.359"
+"4","equilibrium_index","optimized","Mean: 26.328
+Median: 25.98
+SD: 1.143
+IQR: 0.02","Mean: 5.223
+Median: 5.155
+SD: 0.397
+IQR: 0.681","Mean: 4.06
+Median: 4.047
+SD: 0.041
+IQR: 0.047","Mean: 24.458
+Median: 24.538
+SD: 0.453
+IQR: 0.395"
+"5","floyd_warshall","baseline","Mean: 15.86
+Median: 15.42
+SD: 1.008
+IQR: 0.02","Mean: 1.602
+Median: 1.621
+SD: 0.081
+IQR: 0.106","Mean: 4.06
+Median: 4.062
+SD: 0.046
+IQR: 0.031","Mean: 22.379
+Median: 22.502
+SD: 0.94
+IQR: 1.239"
+"6","floyd_warshall","optimized","Mean: 15.691
+Median: 15.41
+SD: 0.806
+IQR: 0.02","Mean: 1.569
+Median: 1.53
+SD: 0.072
+IQR: 0.11","Mean: 4.008
+Median: 4.016
+SD: 0.043
+IQR: 0.066","Mean: 23.377
+Median: 23.157
+SD: 1.975
+IQR: 1.172"
+"7","knapsack","baseline","Mean: 448.657
+Median: 448.38
+SD: 2.12
+IQR: 0.02","Mean: 165.34
+Median: 165.131
+SD: 0.745
+IQR: 0.345","Mean: 4.024
+Median: 4.016
+SD: 0.045
+IQR: 0.016","Mean: 25.275
+Median: 25.273
+SD: 0.017
+IQR: 0.02"
+"8","knapsack","optimized","Mean: 13.204
+Median: 12.76
+SD: 1.009
+IQR: 0.018","Mean: 0.561
+Median: 0.549
+SD: 0.033
+IQR: 0.01","Mean: 4.072
+Median: 4.078
+SD: 0.059
+IQR: 0.047","Mean: 22.726
+Median: 22.82
+SD: 1.227
+IQR: 1.54"
+"9","max_subarray","baseline","Mean: 77.025
+Median: 76.15
+SD: 1.274
+IQR: 2.647","Mean: 24.563
+Median: 24.615
+SD: 0.157
+IQR: 0.147","Mean: 4.058
+Median: 4.062
+SD: 0.051
+IQR: 0.062","Mean: 25.151
+Median: 25.153
+SD: 0.054
+IQR: 0.06"
+"10","max_subarray","optimized","Mean: 90.046
+Median: 89.345
+SD: 1.192
+IQR: 1.97","Mean: 29.525
+Median: 29.576
+SD: 0.178
+IQR: 0.258","Mean: 4.086
+Median: 4.078
+SD: 0.038
+IQR: 0.059","Mean: 25.174
+Median: 25.191
+SD: 0.073
+IQR: 0.066"
+"11","mergesort","baseline","Mean: 118.294
+Median: 118.38
+SD: 0.487
+IQR: 0.03","Mean: 39.894
+Median: 39.896
+SD: 0.079
+IQR: 0.098","Mean: 4.031
+Median: 4.031
+SD: 0.044
+IQR: 0.047","Mean: 25.208
+Median: 25.209
+SD: 0.062
+IQR: 0.083"
+"12","mergesort","optimized","Mean: 102.539
+Median: 102.54
+SD: 0.014
+IQR: 0.02","Mean: 34.075
+Median: 34.059
+SD: 0.075
+IQR: 0.1","Mean: 4.038
+Median: 4.016
+SD: 0.052
+IQR: 0.059","Mean: 25.205
+Median: 25.206
+SD: 0.06
+IQR: 0.075"
+"13","prefix_sum","baseline","Mean: 28.711
+Median: 28.62
+SD: 0.484
+IQR: 0.017","Mean: 6.321
+Median: 6.31
+SD: 0.081
+IQR: 0.112","Mean: 4.043
+Median: 4.062
+SD: 0.048
+IQR: 0.062","Mean: 24.545
+Median: 24.535
+SD: 0.271
+IQR: 0.381"
+"14","prefix_sum","optimized","Mean: 28.699
+Median: 28.61
+SD: 0.489
+IQR: 0.02","Mean: 6.574
+Median: 6.567
+SD: 0.053
+IQR: 0.084","Mean: 4.055
+Median: 4.047
+SD: 0.093
+IQR: 0.062","Mean: 24.69
+Median: 24.705
+SD: 0.201
+IQR: 0.224"
+"15","product_sum","baseline","Mean: 12.76
+Median: 12.76
+SD: 0.01
+IQR: 0.018","Mean: 0.605
+Median: 0.611
+SD: 0.055
+IQR: 0.105","Mean: 4.034
+Median: 4.016
+SD: 0.05
+IQR: 0.043","Mean: 22.761
+Median: 22.65
+SD: 1.241
+IQR: 1.978"
+"16","product_sum","optimized","Mean: 13.298
+Median: 12.77
+SD: 1.081
+IQR: 0.02","Mean: 0.636
+Median: 0.656
+SD: 0.051
+IQR: 0.015","Mean: 4.018
+Median: 4.016
+SD: 0.04
+IQR: 0.047","Mean: 22.093
+Median: 21.923
+SD: 1.475
+IQR: 1.884"
+"17","stock_span","baseline","Mean: 15.417
+Median: 15.42
+SD: 0.013
+IQR: 0.01","Mean: 0.974
+Median: 0.981
+SD: 0.026
+IQR: 0.011","Mean: 4.024
+Median: 4.023
+SD: 0.059
+IQR: 0.047","Mean: 22.571
+Median: 22.557
+SD: 0.763
+IQR: 0.805"
+"18","stock_span","optimized","Mean: 15.414
+Median: 15.41
+SD: 0.01
+IQR: 0.01","Mean: 0.996
+Median: 0.986
+SD: 0.033
+IQR: 0.015","Mean: 4.048
+Median: 4.062
+SD: 0.053
+IQR: 0.062","Mean: 22.471
+Median: 22.511
+SD: 0.946
+IQR: 1.818"
+"19","strassen","baseline","Mean: 18.047
+Median: 18.05
+SD: 0.014
+IQR: 0.02","Mean: 2.576
+Median: 2.596
+SD: 0.052
+IQR: 0.073","Mean: 4.028
+Median: 4.031
+SD: 0.054
+IQR: 0.086","Mean: 24.066
+Median: 23.972
+SD: 0.56
+IQR: 0.682"
+"20","strassen","optimized","Mean: 18.046
+Median: 18.05
+SD: 0.012
+IQR: 0.01","Mean: 2.584
+Median: 2.603
+SD: 0.047
+IQR: 0.028","Mean: 4.031
+Median: 4.016
+SD: 0.094
+IQR: 0.078","Mean: 24.036
+Median: 24.066
+SD: 0.433
+IQR: 0.61"
